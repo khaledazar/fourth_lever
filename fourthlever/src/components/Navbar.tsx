@@ -42,10 +42,18 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <span className="font-heading font-bold text-xl text-primary tracking-[-0.5px]">
+            <span
+              className={`font-heading font-bold text-xl tracking-[-0.5px] transition-colors duration-300 ${
+                scrolled ? "text-primary" : "text-white"
+              }`}
+            >
               Fourth
             </span>
-            <span className="font-heading font-bold text-xl text-accent tracking-[-0.5px]">
+            <span
+              className={`font-heading font-bold text-xl tracking-[-0.5px] transition-colors duration-300 ${
+                scrolled ? "text-accent" : "text-emerald-400"
+              }`}
+            >
               Lever
             </span>
           </a>
@@ -56,10 +64,18 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative font-body text-[15px] font-medium text-body hover:text-primary transition-colors group"
+                className={`relative font-body text-[15px] font-medium transition-colors duration-300 group ${
+                  scrolled
+                    ? "text-body hover:text-primary"
+                    : "text-white/60 hover:text-white"
+                }`}
               >
                 {link.label}
-                <span className="absolute bottom-[-2px] left-0 w-0 h-[1.5px] bg-accent group-hover:w-full transition-all duration-300" />
+                <span
+                  className={`absolute bottom-[-2px] left-0 w-0 h-[1.5px] group-hover:w-full transition-all duration-300 ${
+                    scrolled ? "bg-accent" : "bg-emerald-400"
+                  }`}
+                />
               </a>
             ))}
             <PillButton
@@ -78,19 +94,19 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`w-5 h-[1.5px] bg-primary transition-all duration-300 origin-center ${
-                mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""
-              }`}
+              className={`w-5 h-[1.5px] transition-all duration-300 origin-center ${
+                scrolled ? "bg-primary" : "bg-white"
+              } ${mobileOpen ? "rotate-45 translate-y-[6.5px]" : ""}`}
             />
             <span
-              className={`w-5 h-[1.5px] bg-primary transition-all duration-300 ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
+              className={`w-5 h-[1.5px] transition-all duration-300 ${
+                scrolled ? "bg-primary" : "bg-white"
+              } ${mobileOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`w-5 h-[1.5px] bg-primary transition-all duration-300 origin-center ${
-                mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""
-              }`}
+              className={`w-5 h-[1.5px] transition-all duration-300 origin-center ${
+                scrolled ? "bg-primary" : "bg-white"
+              } ${mobileOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`}
             />
           </button>
         </div>

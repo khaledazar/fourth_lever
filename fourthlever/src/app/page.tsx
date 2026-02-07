@@ -16,7 +16,6 @@ export default function Home() {
       <div className="noise-overlay" />
       <main className="relative z-10">
         <Hero />
-        <div className="section-divider" />
         <SocialProof />
         <div className="section-divider" />
         <HowItWorks />
