@@ -25,26 +25,31 @@ export default function Navbar() {
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
+      transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-border-light shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+          ? "bg-white/80 border-b border-[rgba(226,232,240,0.6)] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
           : "bg-transparent"
       }`}
+      style={
+        scrolled
+          ? { backdropFilter: "blur(16px) saturate(180%)" }
+          : undefined
+      }
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <span className="font-heading font-extrabold text-xl text-primary tracking-tight">
+            <span className="font-heading font-bold text-xl text-primary tracking-[-0.5px]">
               Fourth
             </span>
-            <span className="font-heading font-extrabold text-xl text-accent tracking-tight">
+            <span className="font-heading font-bold text-xl text-accent tracking-[-0.5px]">
               Lever
             </span>
           </a>
 
-          {/* Desktop nav */}
+          {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
@@ -98,7 +103,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-b border-border-light overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-xl border-b border-border-light overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (

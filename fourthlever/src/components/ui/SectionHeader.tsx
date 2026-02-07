@@ -27,19 +27,19 @@ export default function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5 }}
-      className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
+      className={`mb-14 ${align === "center" ? "text-center" : "text-left"}`}
     >
-      <span className="inline-block px-4 py-1.5 bg-accent-bg text-accent font-heading font-semibold text-xs uppercase tracking-widest rounded-full mb-6">
+      <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(5,150,105,0.08)] border border-[rgba(5,150,105,0.15)] text-accent font-heading font-medium text-xs uppercase tracking-widest rounded-full mb-4">
         {tag}
       </span>
-      <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-primary tracking-[-1.5px] leading-[1.15] mb-5">
+      <h2 className="font-heading font-bold text-4xl md:text-5xl text-primary tracking-[-2px] leading-[1.08] mb-4">
         {before}
         {idx >= 0 && <span className="gradient-text">{gradientWord}</span>}
         {after}
       </h2>
       {subtext && (
         <p
-          className={`text-body font-body text-lg max-w-2xl leading-relaxed ${
+          className={`text-body font-body text-base max-w-2xl leading-relaxed ${
             align === "center" ? "mx-auto" : ""
           }`}
         >

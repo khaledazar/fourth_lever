@@ -1,31 +1,28 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const geistSans = Geist({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
+  variable: "--font-geist-sans",
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-dm-sans",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Fourth Lever | AI Infrastructure Agency",
   description:
-    "We build, deploy, and manage AI systems for businesses that want results — not another tool to learn. Your business runs on three levers — we're the fourth.",
+    "We build, deploy, and manage AI systems for businesses that want results — not another tool to learn.",
   keywords: [
     "AI agency",
     "AI infrastructure",
     "managed AI services",
     "business automation",
-    "AI operations",
   ],
   openGraph: {
     title: "Fourth Lever | AI Infrastructure Agency",
@@ -39,13 +36,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${plusJakarta.variable} ${dmSans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

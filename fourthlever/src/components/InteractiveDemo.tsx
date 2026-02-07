@@ -94,9 +94,7 @@ function TypewriterText({ isInView }: { isInView: boolean }) {
   return (
     <div className="font-mono text-[12px] leading-relaxed min-h-[120px]">
       {displayedLines.map((line, i) => (
-        <div key={i} className={colorFor(line)}>
-          {line}
-        </div>
+        <div key={i} className={colorFor(line)}>{line}</div>
       ))}
       {currentLine && (
         <div className={colorFor(currentLine)}>
@@ -126,11 +124,11 @@ export default function InteractiveDemo() {
   }, [isInView]);
 
   return (
-    <section id="services" className="py-24 md:py-32 relative" ref={sectionRef}>
+    <section id="services" className="py-20 md:py-[120px] relative" ref={sectionRef}>
       {/* Dot-grid backdrop */}
       <div className="absolute inset-0 dot-pattern opacity-40 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <SectionHeader
           tag="See It In Action"
           heading="Your AI infrastructure, working"
@@ -143,10 +141,10 @@ export default function InteractiveDemo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="grid lg:grid-cols-5 gap-5"
+          className="grid lg:grid-cols-5 gap-4"
         >
           {/* ── Left panel — System Status (dark) ── */}
-          <div className="lg:col-span-3 bg-primary rounded-2xl p-6 overflow-hidden">
+          <div className="lg:col-span-3 bg-primary rounded-2xl p-6 overflow-hidden shadow-[0_4px_24px_rgba(15,23,42,0.15)]">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
@@ -154,7 +152,7 @@ export default function InteractiveDemo() {
                   System Status
                 </span>
               </div>
-              <span className="font-body text-[12px] text-white/40">Live</span>
+              <span className="font-mono text-[12px] text-white/40">Live</span>
             </div>
 
             <div className="space-y-3">
@@ -169,17 +167,11 @@ export default function InteractiveDemo() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-[7px] h-[7px] rounded-full bg-accent animate-pulse-dot" />
-                    <span className="font-body text-sm text-white/80">
-                      {svc.name}
-                    </span>
+                    <span className="font-body text-sm text-white/80">{svc.name}</span>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="font-body text-xs text-accent-light font-medium hidden sm:inline">
-                      {svc.status}
-                    </span>
-                    <span className="font-body text-xs text-white/40 hidden sm:inline">
-                      {svc.uptime}
-                    </span>
+                    <span className="font-mono text-xs text-accent-light font-medium hidden sm:inline">{svc.status}</span>
+                    <span className="font-mono text-xs text-white/40 hidden sm:inline">{svc.uptime}</span>
                     <Sparkline />
                   </div>
                 </motion.div>
@@ -194,17 +186,15 @@ export default function InteractiveDemo() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                 </div>
-                <span className="font-body text-[11px] text-white/30 ml-2">
-                  fourth-lever-ops
-                </span>
+                <span className="font-mono text-[11px] text-white/30 ml-2">fourth-lever-ops</span>
               </div>
               <TypewriterText isInView={isInView} />
             </div>
           </div>
 
           {/* ── Right panel — Recent Activity ───── */}
-          <div className="lg:col-span-2 bg-surface border border-border-light rounded-2xl p-6">
-            <h3 className="font-heading font-bold text-[15px] text-primary mb-5">
+          <div className="lg:col-span-2 bg-white border border-border-light rounded-2xl p-6 shadow-[0_1px_3px_rgba(15,23,42,0.04),0_4px_12px_rgba(15,23,42,0.03)]">
+            <h3 className="font-heading font-semibold text-[15px] text-primary mb-5">
               Recent Activity
             </h3>
             <div className="space-y-3">
@@ -218,8 +208,8 @@ export default function InteractiveDemo() {
                   transition={{ duration: 0.4 }}
                   className={`p-3 rounded-xl border transition-all duration-300 ${
                     i === activeActivity
-                      ? "bg-accent-bg border-border-hover"
-                      : "bg-white border-border-light"
+                      ? "bg-accent-bg border-[rgba(5,150,105,0.15)]"
+                      : "bg-surface border-border-light"
                   }`}
                 >
                   <div className="flex items-start gap-2.5">
@@ -229,12 +219,8 @@ export default function InteractiveDemo() {
                       }`}
                     />
                     <div>
-                      <p className="font-body text-[13px] text-secondary leading-snug">
-                        {item.text}
-                      </p>
-                      <span className="font-body text-[11px] text-muted mt-1 block">
-                        {item.time}
-                      </span>
+                      <p className="font-body text-[13px] text-secondary leading-snug">{item.text}</p>
+                      <span className="font-mono text-[11px] text-muted mt-1 block">{item.time}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -244,7 +230,7 @@ export default function InteractiveDemo() {
         </motion.div>
 
         {/* ── Stats row ─────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
           {[
             { label: "Tasks Automated", value: 2847, prefix: "", suffix: "" },
             { label: "Hours Saved", value: 164, prefix: "", suffix: "" },
@@ -256,14 +242,10 @@ export default function InteractiveDemo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 * i }}
-              className="bg-surface border border-border-light rounded-2xl p-5 text-center hover:border-border-hover hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(5,150,105,0.07)] transition-all duration-300"
+              className="bg-white border border-border-light rounded-2xl p-5 text-center shadow-[0_1px_3px_rgba(15,23,42,0.04),0_4px_12px_rgba(15,23,42,0.03)] hover:border-border-hover hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(5,150,105,0.12),0_4px_12px_rgba(15,23,42,0.04)] transition-all duration-300"
             >
-              <div className="font-heading font-extrabold text-3xl text-primary mb-1">
-                <AnimatedCounter
-                  target={stat.value}
-                  prefix={stat.prefix}
-                  suffix={stat.suffix}
-                />
+              <div className="font-mono font-bold text-[28px] tracking-[-1px] text-accent mb-1">
+                <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </div>
               <p className="font-body text-sm text-muted">{stat.label}</p>
             </motion.div>

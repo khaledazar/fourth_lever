@@ -21,12 +21,7 @@ const logos = [
     <circle cx="78" cy="16" r="3" fill="#94A3B8" />
   </svg>,
   <svg key="l4" width="100" height="32" viewBox="0 0 100 32" fill="none">
-    <polygon
-      points="16,2 28,9 28,23 16,30 4,23 4,9"
-      stroke="#94A3B8"
-      strokeWidth="1.5"
-      fill="none"
-    />
+    <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" stroke="#94A3B8" strokeWidth="1.5" fill="none" />
     <rect x="38" y="10" width="54" height="4" rx="2" fill="#94A3B8" />
     <rect x="38" y="18" width="36" height="4" rx="2" fill="#94A3B8" />
   </svg>,
@@ -46,15 +41,17 @@ export default function SocialProof() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="py-12 border-y border-border-light overflow-hidden"
+      className="py-12 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Gradient divider top */}
+      <div className="section-divider mb-12" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <p className="font-body text-sm text-muted text-center mb-8 tracking-wide">
           Trusted by operators building real businesses
         </p>
 
         <div className="relative">
-          {/* Fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
@@ -70,6 +67,9 @@ export default function SocialProof() {
           </div>
         </div>
       </div>
+
+      {/* Gradient divider bottom */}
+      <div className="section-divider mt-12" />
     </motion.section>
   );
 }
