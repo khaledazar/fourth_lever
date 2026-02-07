@@ -22,30 +22,40 @@ export default function SectionHeader({
   const after = idx >= 0 ? heading.slice(idx + gradientWord.length) : "";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5 }}
-      className={`mb-14 ${align === "center" ? "text-center" : "text-left"}`}
-    >
-      <span className="inline-flex items-center px-4 py-1.5 bg-[rgba(5,150,105,0.08)] border border-[rgba(5,150,105,0.15)] text-accent font-heading font-medium text-xs uppercase tracking-widest rounded-full mb-4">
+    <div className={`mb-14 ${align === "center" ? "text-center" : "text-left"}`}>
+      <motion.span
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.45 }}
+        className="inline-flex items-center px-4 py-1.5 bg-[rgba(5,150,105,0.08)] border border-[rgba(5,150,105,0.15)] text-accent font-heading font-medium text-xs uppercase tracking-widest rounded-full mb-[14px]"
+      >
         {tag}
-      </span>
-      <h2 className="font-heading font-bold text-4xl md:text-5xl text-primary tracking-[-2px] leading-[1.08] mb-4">
+      </motion.span>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.08 }}
+        className="font-heading font-extrabold text-4xl md:text-5xl text-primary tracking-[-2.5px] leading-[1.08] mb-4"
+      >
         {before}
         {idx >= 0 && <span className="gradient-text">{gradientWord}</span>}
         {after}
-      </h2>
+      </motion.h2>
       {subtext && (
-        <p
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.16 }}
           className={`text-body font-body text-base max-w-2xl leading-relaxed ${
             align === "center" ? "mx-auto" : ""
           }`}
         >
           {subtext}
-        </p>
+        </motion.p>
       )}
-    </motion.div>
+    </div>
   );
 }

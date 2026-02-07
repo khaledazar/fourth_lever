@@ -101,7 +101,10 @@ export default function Hero() {
       className="relative pt-36 pb-20 md:pt-[180px] md:pb-[120px] overflow-hidden"
     >
       {/* ── Background gradient orbs ─────────────── */}
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
         className="absolute pointer-events-none"
         style={{
           top: "-200px",
@@ -113,7 +116,10 @@ export default function Hero() {
             "radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 70%)",
         }}
       />
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
         className="absolute pointer-events-none"
         style={{
           bottom: "-100px",
@@ -135,14 +141,14 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full backdrop-blur-sm mb-8"
+              className="inline-flex items-center gap-2 pl-3 pr-4 py-1.5 rounded-full backdrop-blur-md mb-8"
               style={{
                 background: "rgba(5,150,105,0.08)",
                 border: "1px solid rgba(5,150,105,0.15)",
               }}
             >
               <span className="w-[7px] h-[7px] rounded-full bg-accent animate-pulse-dot" />
-              <span className="font-mono text-[13px] font-medium text-accent">
+              <span className="font-body text-[13px] font-medium tracking-wide text-accent">
                 Accepting new clients
               </span>
             </motion.div>
@@ -152,7 +158,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35 }}
-              className="font-heading font-bold text-[2.75rem] md:text-[3.5rem] lg:text-[3.75rem] text-primary tracking-[-3px] leading-[1.05] mb-5"
+              className="font-heading font-extrabold text-[2.75rem] md:text-[3.5rem] lg:text-[3.75rem] text-primary tracking-[-2.75px] leading-[1.05] mb-5"
             >
               AI infrastructure that runs{" "}
               <span className="gradient-text">behind the scenes</span>
@@ -228,7 +234,7 @@ export default function Hero() {
                       </p>
                       {/* Metric */}
                       <div className="pt-4 mt-auto border-t border-border-light">
-                        <span className="font-mono font-bold text-[22px] tracking-[-1px] text-accent">
+                        <span className="font-heading font-extrabold text-[24px] tracking-[-1px] text-accent">
                           {tile.metric}
                         </span>
                         <p className="font-body text-[12px] text-muted mt-0.5">

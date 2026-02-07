@@ -27,7 +27,7 @@ export default function CTASection() {
           <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
 
           <div className="relative">
-            <h2 className="font-heading font-bold text-3xl md:text-5xl text-primary tracking-[-2px] leading-[1.08] mb-4">
+            <h2 className="font-heading font-extrabold text-3xl md:text-5xl text-primary tracking-[-2.5px] leading-[1.08] mb-4">
               Ready to add your{" "}
               <span className="gradient-text">fourth lever</span>?
             </h2>
