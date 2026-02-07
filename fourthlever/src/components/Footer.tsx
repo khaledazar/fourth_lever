@@ -2,6 +2,7 @@ const links = [
   { label: "Services", href: "#services" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Who It's For", href: "#who-its-for" },
+  { label: "Case Studies", href: "#case-studies" },
   { label: "About", href: "#why-us" },
   { label: "Contact", href: "mailto:hello@fourthlever.com" },
 ];

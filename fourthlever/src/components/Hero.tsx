@@ -105,37 +105,21 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="absolute pointer-events-none"
-        style={{
-          top: "-200px",
-          right: "-200px",
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 70%)",
-        }}
-      />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="absolute pointer-events-none"
-        style={{
-          bottom: "-100px",
-          left: "-100px",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(5,150,105,0.04) 0%, transparent 70%)",
-        }}
+        className="hero-orbs"
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* ── Left ───────────────────────────────── */}
           <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.12 }}
+              className="font-body text-xs uppercase tracking-[0.22em] text-muted mb-4"
+            >
+              AI Infrastructure Agency
+            </motion.div>
             {/* Status badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -148,7 +132,7 @@ export default function Hero() {
               }}
             >
               <span className="w-[7px] h-[7px] rounded-full bg-accent animate-pulse-dot" />
-              <span className="font-body text-[13px] font-medium tracking-wide text-accent">
+              <span className="font-mono text-[12px] font-medium tracking-wide text-accent">
                 Accepting new clients
               </span>
             </motion.div>
@@ -196,23 +180,15 @@ export default function Hero() {
           </div>
 
           {/* ── Right — staggered offset tile grid ── */}
-          <div className="relative">
-            {/* Gradient glow behind tiles */}
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse, rgba(5,150,105,0.08) 0%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
-
-            <div className="relative grid grid-cols-2 gap-4">
+          <div className="hero-tiles-wrapper">
+            <div className="absolute inset-2 glass-panel pointer-events-none" />
+            <div className="hero-tiles">
               {heroTiles.map((tile, i) => (
                 <FloatingCard
                   key={tile.title}
                   delay={tile.delay}
                   floatClass={tile.float}
+                  offsetY={i % 2 === 1 ? 24 : 0}
                 >
                   <div
                     style={{
@@ -234,7 +210,7 @@ export default function Hero() {
                       </p>
                       {/* Metric */}
                       <div className="pt-4 mt-auto border-t border-border-light">
-                        <span className="font-heading font-extrabold text-[24px] tracking-[-1px] text-accent">
+                        <span className="font-mono font-bold text-[22px] tracking-[-1px] text-accent">
                           {tile.metric}
                         </span>
                         <p className="font-body text-[12px] text-muted mt-0.5">

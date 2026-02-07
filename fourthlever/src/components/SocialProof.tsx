@@ -43,9 +43,6 @@ export default function SocialProof() {
       transition={{ duration: 0.6 }}
       className="py-12 overflow-hidden"
     >
-      {/* Gradient divider top */}
-      <div className="section-divider mb-12" />
-
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <p className="font-body text-sm text-muted text-center mb-8 tracking-wide">
           Trusted by operators building real businesses
@@ -67,9 +64,6 @@ export default function SocialProof() {
           </div>
         </div>
       </div>
-
-      {/* Gradient divider bottom */}
-      <div className="section-divider mt-12" />
     </motion.section>
   );
 }

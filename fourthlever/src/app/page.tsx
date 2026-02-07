@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
 import HowItWorks from "@/components/HowItWorks";
 import InteractiveDemo from "@/components/InteractiveDemo";
+import CaseStudies from "@/components/CaseStudies";
 import WhoItsFor from "@/components/WhoItsFor";
 import WhyFourthLever from "@/components/WhyFourthLever";
 import CTASection from "@/components/CTASection";
@@ -12,13 +13,22 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main>
+      <div className="noise-overlay" />
+      <main className="relative z-10">
         <Hero />
+        <div className="section-divider" />
         <SocialProof />
+        <div className="section-divider" />
         <HowItWorks />
+        <div className="section-divider" />
         <InteractiveDemo />
+        <div className="section-divider" />
+        <CaseStudies />
+        <div className="section-divider" />
         <WhoItsFor />
+        <div className="section-divider" />
         <WhyFourthLever />
+        <div className="section-divider" />
         <CTASection />
       </main>
       <Footer />

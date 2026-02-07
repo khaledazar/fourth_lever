@@ -244,7 +244,7 @@ export default function InteractiveDemo() {
               transition={{ duration: 0.4, delay: 0.1 * i }}
               className="bg-white border border-border-light rounded-2xl p-5 text-center shadow-[0_1px_3px_rgba(15,23,42,0.04),0_4px_12px_rgba(15,23,42,0.03)] hover:border-border-hover hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(5,150,105,0.12),0_4px_12px_rgba(15,23,42,0.04)] transition-all duration-300"
             >
-              <div className="font-heading font-extrabold text-[28px] tracking-[-1px] text-accent mb-1">
+              <div className="font-mono font-bold text-[28px] tracking-[-1px] text-accent mb-1">
                 <AnimatedCounter target={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </div>
               <p className="font-body text-sm text-muted">{stat.label}</p>
