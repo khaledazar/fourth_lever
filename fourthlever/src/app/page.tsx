@@ -1,11 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
-import HowItWorks from "@/components/HowItWorks";
-import InteractiveDemo from "@/components/InteractiveDemo";
+import WhoWeServe from "@/components/WhoWeServe";
+import Capabilities from "@/components/Capabilities";
+import ServiceCarousel from "@/components/ServiceCarousel";
 import CaseStudies from "@/components/CaseStudies";
-import WhoItsFor from "@/components/WhoItsFor";
-import WhyFourthLever from "@/components/WhyFourthLever";
+import Testimonials from "@/components/Testimonials";
+import Process from "@/components/Process";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -13,20 +14,21 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="noise-overlay" />
-      <main className="relative z-10">
+      <main>
         <Hero />
         <SocialProof />
         <div className="section-divider" />
-        <HowItWorks />
+        <WhoWeServe />
         <div className="section-divider" />
-        <InteractiveDemo />
+        <Capabilities />
+        <div className="section-divider" />
+        <ServiceCarousel />
         <div className="section-divider" />
         <CaseStudies />
         <div className="section-divider" />
-        <WhoItsFor />
+        <Testimonials />
         <div className="section-divider" />
-        <WhyFourthLever />
+        <Process />
         <div className="section-divider" />
         <CTASection />
       </main>

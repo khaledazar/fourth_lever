@@ -1,16 +1,14 @@
 const links = [
   { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Who It's For", href: "#who-its-for" },
+  { label: "How It Works", href: "#process" },
+  { label: "Who We Serve", href: "#who-we-serve" },
   { label: "Case Studies", href: "#case-studies" },
-  { label: "About", href: "#why-us" },
   { label: "Contact", href: "mailto:hello@fourthlever.com" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-white">
-      {/* Gradient divider */}
+    <footer>
       <div className="section-divider" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
@@ -18,15 +16,15 @@ export default function Footer() {
           {/* Logo + tagline */}
           <div>
             <div className="flex items-center mb-4">
-              <span className="font-heading font-bold text-xl text-primary tracking-[-0.5px]">
+              <span className="font-heading font-bold text-xl text-white tracking-[-0.5px]">
                 Fourth
               </span>
-              <span className="font-heading font-bold text-xl text-accent tracking-[-0.5px]">
+              <span className="font-heading font-bold text-xl text-emerald-400 tracking-[-0.5px]">
                 Lever
               </span>
             </div>
             <p className="font-body text-sm text-body leading-relaxed">
-              AI infrastructure for businesses that mean business.
+              AI infrastructure for businesses that build real things.
             </p>
           </div>
 
@@ -40,7 +38,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="font-body text-sm text-body hover:text-primary transition-colors"
+                    className="font-body text-sm text-body hover:text-white transition-colors"
                   >
                     {l.label}
                   </a>
@@ -58,7 +56,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:hello@fourthlever.com"
-                  className="font-body text-sm text-body hover:text-primary transition-colors"
+                  className="font-body text-sm text-body hover:text-white transition-colors"
                 >
                   hello@fourthlever.com
                 </a>
@@ -69,11 +67,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="section-divider" />
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6">
         <p className="font-body text-xs text-muted text-center">
-          &copy; 2025 Fourth Lever. All rights reserved.
+          &copy; {new Date().getFullYear()} Fourth Lever. All rights reserved.
         </p>
       </div>
     </footer>

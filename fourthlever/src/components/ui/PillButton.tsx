@@ -22,9 +22,9 @@ export default function PillButton({
 
   const variants = {
     primary:
-      "bg-accent text-white shadow-[0_2px_4px_rgba(5,150,105,0.2),0_0_0_1px_rgba(5,150,105,0.1)] hover:bg-[#047857] hover:shadow-[0_4px_12px_rgba(5,150,105,0.3),0_0_0_1px_rgba(5,150,105,0.2)] hover:-translate-y-0.5",
+      "bg-accent text-white shadow-[0_0_20px_rgba(16,185,129,0.2),0_0_0_1px_rgba(16,185,129,0.15)] hover:bg-accent-light hover:shadow-[0_0_30px_rgba(16,185,129,0.3),0_0_0_1px_rgba(16,185,129,0.2)] hover:-translate-y-0.5",
     ghost:
-      "bg-white text-secondary border border-[#D1D5DB] shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:bg-[#F9FAFB] hover:border-[#9CA3AF] hover:shadow-[0_2px_4px_rgba(0,0,0,0.08)]",
+      "bg-[rgba(255,255,255,0.05)] text-[rgba(255,255,255,0.7)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.2)] hover:text-white",
   };
 
   const cls = `${base} ${variants[variant]} ${className}`;

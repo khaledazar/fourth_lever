@@ -28,7 +28,7 @@ export default function SectionHeader({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.45 }}
-        className="inline-flex items-center px-4 py-1.5 bg-[rgba(5,150,105,0.08)] border border-[rgba(5,150,105,0.15)] text-accent font-heading font-medium text-xs uppercase tracking-widest rounded-full mb-[14px]"
+        className="inline-flex items-center px-4 py-1.5 bg-accent-bg border border-[rgba(16,185,129,0.15)] text-accent-light font-heading font-medium text-xs uppercase tracking-widest rounded-full mb-[14px]"
       >
         {tag}
       </motion.span>

@@ -6,8 +6,8 @@ import SectionHeader from "./ui/SectionHeader";
 
 const cases = [
   {
-    id: "ops",
-    tag: "Home Services",
+    id: "hvac",
+    tag: "HVAC & Mechanical",
     title: "Dispatch automation that feels invisible",
     description:
       "A multi-location HVAC operator replaced manual dispatch with an AI routing layer. The system learned technician patterns, optimized travel time, and triggered follow-ups automatically.",
@@ -19,30 +19,30 @@ const cases = [
     highlight: "Zero new hires. Zero new tools.",
   },
   {
-    id: "agency",
-    tag: "Agency Delivery",
-    title: "Delivery scaled without hiring",
+    id: "construction",
+    tag: "General Contractor",
+    title: "Project coordination without the overhead",
     description:
-      "A mid-market agency automated research, reporting, and QA steps. The AI layer created a repeatable operations system that increased throughput with the same headcount.",
+      "A mid-size GC automated daily logs, subcontractor scheduling, and change order tracking. The AI layer created a repeatable operations system that increased throughput with the same headcount.",
     metrics: [
       { label: "Throughput", value: "3.1x" },
       { label: "Automation", value: "92%" },
       { label: "Turnaround", value: "5d → 1d" },
     ],
-    highlight: "AI did the repetitive work. Humans did the creative work.",
+    highlight: "AI did the paperwork. The crew did the building.",
   },
   {
-    id: "finance",
-    tag: "SMB Finance",
-    title: "Cash collection with AI follow‑up",
+    id: "property",
+    tag: "Property Management",
+    title: "Maintenance requests on autopilot",
     description:
-      "A $12M distributor implemented AI-driven invoice matching and payment nudges. The system handled exceptions while the team focused on relationship‑building.",
+      "A 200-unit property management company implemented AI-driven tenant communication, maintenance routing, and vendor coordination. Response times dropped from days to hours.",
     metrics: [
-      { label: "Recovered", value: "$62K" },
-      { label: "Accuracy", value: "99.4%" },
-      { label: "DSO", value: "-11 days" },
+      { label: "Response time", value: "48h → 4h" },
+      { label: "Tenant satisfaction", value: "+42%" },
+      { label: "Cost savings", value: "$62K/yr" },
     ],
-    highlight: "Revenue impact without process disruption.",
+    highlight: "Happier tenants. Happier owners. Less stress.",
   },
 ];
 
@@ -56,22 +56,23 @@ export default function CaseStudies() {
           tag="Case Studies"
           heading="Operational wins, not AI demos"
           gradientWord="Operational wins"
-          subtext="We don't ship experiments. We ship infrastructure that quietly compounds results." />
+          subtext="We don't ship experiments. We ship infrastructure that quietly compounds results."
+        />
 
         <div className="grid lg:grid-cols-12 gap-6">
           {/* Left list */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-3">
             {cases.map((c) => (
               <button
                 key={c.id}
                 onClick={() => setActive(c)}
-                className={`w-full text-left rounded-2xl border px-5 py-4 transition-all duration-300 ${
+                className={`w-full text-left rounded-2xl border px-5 py-4 transition-all duration-300 cursor-pointer ${
                   active.id === c.id
-                    ? "border-border-hover bg-accent-bg shadow-[0_12px_40px_rgba(5,150,105,0.12),0_4px_12px_rgba(15,23,42,0.04)]"
-                    : "border-border-light bg-white hover:border-border-hover"
+                    ? "border-[rgba(16,185,129,0.3)] bg-accent-bg shadow-[0_0_30px_rgba(16,185,129,0.06)]"
+                    : "border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] hover:border-[rgba(16,185,129,0.2)] hover:bg-[rgba(255,255,255,0.04)]"
                 }`}
               >
-                <div className="text-xs uppercase tracking-[0.2em] text-muted mb-2">
+                <div className="text-xs uppercase tracking-[0.2em] text-muted mb-2 font-mono">
                   {c.tag}
                 </div>
                 <div className="font-heading font-semibold text-[15px] text-primary leading-snug">
@@ -90,19 +91,20 @@ export default function CaseStudies() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.35 }}
-                className="glass-panel p-8 relative overflow-hidden"
+                className="dark-card p-8 relative overflow-hidden"
               >
-                <div className="absolute inset-0 pointer-events-none" style={{
-                  background:
-                    "radial-gradient(600px 300px at 80% 0%, rgba(5,150,105,0.08), transparent 60%)",
-                }} />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: "radial-gradient(600px 300px at 80% 0%, rgba(16,185,129,0.06), transparent 60%)",
+                  }}
+                />
 
                 <div className="relative">
                   <div className="flex flex-wrap items-center gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full text-xs uppercase tracking-widest font-medium bg-[rgba(5,150,105,0.08)] border border-[rgba(5,150,105,0.15)] text-accent">
+                    <span className="px-3 py-1 rounded-full text-xs uppercase tracking-widest font-medium bg-accent-bg border border-[rgba(16,185,129,0.15)] text-accent-light font-mono">
                       {active.tag}
                     </span>
-                    <span className="text-xs text-muted">Managed AI Infrastructure</span>
                   </div>
 
                   <h3 className="font-heading font-extrabold text-3xl text-primary tracking-[-2px] leading-[1.1] mb-4">
@@ -112,13 +114,16 @@ export default function CaseStudies() {
                     {active.description}
                   </p>
 
-                  <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                  <div className="grid sm:grid-cols-3 gap-3 mb-8">
                     {active.metrics.map((m) => (
-                      <div key={m.label} className="bg-white border border-border-light rounded-2xl px-4 py-4 shadow-[0_1px_3px_rgba(15,23,42,0.04)]">
-                        <div className="font-mono font-bold text-[20px] tracking-[-1px] text-accent mb-1">
+                      <div
+                        key={m.label}
+                        className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.06)] rounded-xl px-4 py-4"
+                      >
+                        <div className="font-mono font-bold text-[20px] tracking-[-1px] text-accent-light mb-1">
                           {m.value}
                         </div>
-                        <div className="text-xs uppercase tracking-widest text-muted">
+                        <div className="text-xs uppercase tracking-widest text-muted font-mono">
                           {m.label}
                         </div>
                       </div>
@@ -126,7 +131,7 @@ export default function CaseStudies() {
                   </div>
 
                   <div className="flex items-center gap-2 text-sm font-medium text-secondary">
-                    <span className="w-2 h-2 rounded-full bg-accent" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
                     {active.highlight}
                   </div>
                 </div>
